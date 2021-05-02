@@ -16,11 +16,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get users_url
     assert_response :success
+    puts "Users index"
   end
 
   test "should get new" do
     get new_user_url
     assert_response :success
+    puts "Users new"
   end
 
   test "should create user" do
@@ -31,22 +33,26 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to user_url(User.last)
     assert_equal 'User was successfully created.', flash[:notice]
+    puts "Users create"
   end
 
   test "should show user" do
     get user_url(@user)
     assert_response :success
+    puts "Users show"
   end
 
   test "should get edit" do
     get edit_user_url(@user)
     assert_response :success
+    puts "Users edit"
   end
 
   test "should update user" do
     patch user_url(@user), params: { user: { name: @user.name } }
     assert_redirected_to user_url(@user)
     assert_equal 'User was successfully updated.', flash[:notice]
+    puts "Users update"
   end
 
   test "should destroy user" do
@@ -56,5 +62,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to users_url
     assert_equal 'User was successfully destroyed.', flash[:notice]
+    puts "Users destroy"
   end
 end

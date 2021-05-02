@@ -16,11 +16,13 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
     get articles_url
     assert_response :success
+    puts "Articles index."
   end
 
   test "should get new" do
     get new_article_url
     assert_response :success
+    puts "Articles new."
   end
 
   test "should create article" do
@@ -31,22 +33,26 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to article_url(Article.last)
     assert_equal 'Article was successfully created.', flash[:notice]
+    puts "Articles create."
   end
 
   test "should show article" do
     get article_url(@article)
     assert_response :success
+    puts "Articles show."
   end
 
   test "should get edit" do
     get edit_article_url(@article)
     assert_response :success
+    puts "Articles edit."
   end
 
   test "should update article" do
     patch article_url(@article), params: { article: { body: @article.body, text: @article.text } }
     assert_redirected_to article_url(@article)
     assert_equal 'Article was successfully updated.', flash[:notice]
+    puts "Articles update."
   end
 
   test "should destroy article" do
@@ -56,5 +62,6 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to articles_url
     assert_equal 'Article was successfully destroyed.', flash[:notice]
+    puts "Articles destroy."
   end
 end
